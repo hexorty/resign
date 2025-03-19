@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown to May 22, 2025</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 50px;
+        }
+        #countdown {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+        }
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prince Samson resignation Day</h1>
+    <h1>Countdown to May 22, 2025</h1>
+  
+    <div id="countdown"></div>
+
+    <script>
+        function updateCountdown() {
+            const endDate = new Date('May 22, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            let timeLeft = endDate - now;
+
+            if (timeLeft < 0) {
+                document.getElementById('countdown').innerHTML = "Time's up!";
+                return;
+            }
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = 
+                `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+
+    <h1>Prince Gallery</h1>
+    <a href="https://imgbb.com/">
+        <img src="https://i.ibb.co/2Y8RWVBk/9n9oko.jpg" alt="9n9oko" border="0">
+    </a>
+    
+    <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTRzbWQ2NjE1YzRvcmh1dDI3Y28zdHcwbHg4bGl4cTU2YzBqN2E4aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/edLKLYMlNFPJC/giphy.gif" alt="Computer man" style="width:448px;height:439px;">
+
+    <!-- YouTube video embed with autoplay and mute initially -->
+    <iframe width="560" height="440" 
+            id="youtubeVideo"
+            src="https://www.youtube.com/embed/l-u7ahXC-M8?autoplay=0&mute=1" 
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+    </iframe>
+
+    <!-- Click Me link -->
+    <a href="javascript:void(0);" id="clickMeLink">Click Me to Play and Unmute Video</a>
+
+    <script>
+        // Get the iframe and the clickable link element
+        const iframe = document.getElementById("youtubeVideo");
+        const clickMeLink = document.getElementById("clickMeLink");
+
+        // Add click event listener on the link
+        clickMeLink.addEventListener("click", function() {
+            // Change the iframe src to autoplay and unmute when the link is clicked
+            iframe.src = iframe.src.replace("autoplay=0", "autoplay=1").replace("mute=1", "mute=0");
+        });
+    </script>
+
+</body>
+</html>
