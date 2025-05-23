@@ -1,2 +1,3 @@
-# resign
-spoof resignation website for me
+# letter of resignation
+
+resignation website for me
