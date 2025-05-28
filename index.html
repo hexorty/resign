@@ -37,27 +37,38 @@
     <div id="countdown"></div>
 
     <script>
-        function updateCountdown() {
-            const endDate = new Date('May 29, 2025 06:00:00').getTime();
-            const now = new Date().getTime();
-            let timeLeft = endDate - now;
+    function updateCountdown() {
+    const endDate = new Date('May 29, 2025 06:00:00').getTime();
+    const now = new Date().getTime();
+    let timeLeft = endDate - now;
 
-            if (timeLeft < 0) {
-                document.getElementById('countdown').innerHTML = "Time's up!";
-                return;
-            }
+    if (timeLeft < 0) {
+        document.getElementById('countdown').innerHTML = "🎉 Time's up! 🎉";
+        
+        // Fire confetti
+        confetti({
+            particleCount: 200,
+            spread: 100,
+            origin: { y: 0.6 }
+        });
 
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        // Stop further updates
+        clearInterval(countdownInterval);
+        return;
+    }
 
-            document.getElementById('countdown').innerHTML = 
-                `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
-        }
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+    document.getElementById('countdown').innerHTML = 
+        `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+}
+
+// Use a named interval so we can stop it
+const countdownInterval = setInterval(updateCountdown, 1000);
+updateCountdown();
     </script>
 
     <h1>Good bye all.. Thanks!</h1>
